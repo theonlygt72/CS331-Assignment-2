@@ -35,8 +35,7 @@ public class Algorithm1 {
             //if S1.length > k, then partition the left side
             if (pivot > k) {
                 end = pivot - 1;
-            } 
-            // if S1.length < k, then partition the right side
+            } // if S1.length < k, then partition the right side
             else if (pivot < k) {
                 start = pivot + 1;
             } else {
@@ -46,12 +45,13 @@ public class Algorithm1 {
         }
         return set[start];
     }
-    
+
     //Partitions the array into two separate arrays
     //Elements that are less than the pivot are on the left
     //Elements that are greatere than the pivot are on the right
     private static int partition(int[] set, int start, int end) {
-        int pivot = start, temp;
+        int pivot = start;
+        int temp;
         while (start <= end) {
             //loops until you find an element larger than pivot
             while (start <= end && set[start] <= set[pivot]) {
@@ -76,7 +76,13 @@ public class Algorithm1 {
         set[pivot] = temp;
         return end;
     }
-    
+
+    private static void swap(int[] set, int first, int second) {
+        int temp = set[first];
+        set[first] = set[second];
+        set[second] = temp;
+    }
+
     //Generates the array used for testing
     private static int[] generateArr(int len) {
         Set<Integer> random = new HashSet<Integer>();
